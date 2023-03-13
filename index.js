@@ -4,7 +4,6 @@ const morgan = require('morgan')
 
 const app = express()
 
-
 let persons = [
   {
     id: 1,
@@ -38,6 +37,7 @@ const morganLogger = morgan(
 app.use(cors())
 app.use(express.json())
 app.use(morganLogger)
+app.use(express.static('build'))
 
 app.get('/info', (req, res) => {
   const display = `
